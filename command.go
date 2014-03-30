@@ -13,7 +13,8 @@ func main() {
         pgver = os.Getenv("PGVERSION")
     }
     app := cli.NewApp()
-    app.Name = "pgrun"
+    app.Name = "discoverd-postgres"
+    app.Version = "1.0.0"
     app.Usage = "Starts an instance of postgresql server"
     app.Flags = []cli.Flag{
         cli.StringFlag{"data", "/var/lib/pgsql/" + pgver + "/data", "postgresql data directory"},
