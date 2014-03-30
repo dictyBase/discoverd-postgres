@@ -388,12 +388,13 @@ func (f *follower) Stop() error {
 }
 
 func writeConfig(c *cli.Context) {
-    err := copyFile("/etc/postgresql/9.3/main/postgresql.conf", filepath.Join(c.String("data"), "postgresql.conf"))
+    folder := c.String("config")
+    err := copyFile(filepath.Join(folder, "postgresql.conf"), filepath.Join(c.String("data"), "postgresql.conf"))
     if err != nil {
         log.Fatalln("Error creating postgresql.conf", err)
     }
 
-    err = copyFile("/etc/postgresql/9.3/main/pg_hba.conf", filepath.Join(c.String("data"), "pg_hba.conf"))
+    err = copyFile(filepath.Join(folder, "pg_hba.conf"), filepath.Join(c.String("data"), "pg_hba.conf"))
     if err != nil {
         log.Fatalln("Error creating pg_hba.conf", err)
     }

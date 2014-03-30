@@ -26,5 +26,5 @@ func main() {
     app.Action = func(c *cli.Context) {
         centos.RunPg(c)
     }
-    gapp.Run(os.Args)
+    app.Run(os.Args)
 }
