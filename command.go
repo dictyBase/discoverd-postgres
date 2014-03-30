@@ -17,7 +17,7 @@ func main() {
     app.Usage = "Starts an instance of postgresql server"
     app.Flags = []cli.Flag{
         cli.StringFlag{"data", "/var/lib/pgsql/" + pgver + "/data", "postgresql data directory"},
-        cli.StringFlag{"service", "pg", "discoverd service name"},
+        cli.StringFlag{"service", "postgresql", "discoverd service name"},
         cli.StringFlag{"pgbin", "/usr/pgsql-" + pgver + "/bin", "postgres binary directory"},
         cli.StringFlag{"discoverd", "", "discoverd service ip, by default will be picked up from DISCOVERD env variable"},
         cli.StringFlag{"port", "5432", "postgresql port, default is 5432"},
@@ -25,5 +25,5 @@ func main() {
     app.Action = func(c *cli.Context) {
         centos.RunPg(c)
     }
-    app.Run(os.Args)
+    gapp.Run(os.Args)
 }
